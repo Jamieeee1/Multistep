@@ -102,6 +102,10 @@ nav {
   color: var(--Magnolia);
   border: 1px solid;
   border-color: var(--Magnolia);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navp {
