@@ -147,12 +147,13 @@ form {
 
 .step {
   position: relative;
-  top: -40px;
+  top: -60px;
   width:auto;
   height: fit-content;
   margin-inline: 15px;
   padding: 15px;
   background-color: var(--White);
+  padding-top: 1rem;
 
   h1 {
     font-size: larger;
