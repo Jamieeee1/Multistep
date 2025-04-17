@@ -131,6 +131,11 @@ nav {
   justify-content: center;
 }
 
+.nav .active {
+  background-color: var(--Magnolia);
+  color: var(--Marine-blue);
+}
+
 .navp {
   display: none;
   flex-direction: column;
@@ -199,6 +204,9 @@ form {
   border-radius: 5px;
 }
 
+.step-2,.step-3,.step-4 {
+  display: none;
+}
 
 /* footer/controls  */
 footer {
@@ -219,7 +227,7 @@ footer div {
 
 footer div button {
   height: inherit;
-  padding-inline: 1em ;
+  padding-inline: 1.3em ;
   color: var(--Alabaster);
   background-color: var(--Marine-blue);
   border-radius: 7.5px;
@@ -234,7 +242,6 @@ footer div button {
   width: 60px;
   height: 34px;
 }
-
 
 .slider {
   position: absolute;
