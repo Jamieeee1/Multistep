@@ -11,79 +11,162 @@
     <div class="body">
       <div class="container">
         <nav>
-          <ul class="navlist">
-            <li class="navli">
-              <a href="" class="nav">
-                <button class="navButton">1</button>
-                <div class="navp">
-                  <span>STEP 1</span>
-                  <span> YOUR INFO</span>
-                </div>
-              </a>
-            </li>
-            <li class="navli">
-              <a href="" class="nav">
-                <button class="navButton">2</button>
-                <div class="navp">
-                  <span>STEP 2</span>
-                  <span> SELECT PLAN</span>
-                </div>
-              </a>
-            </li>
-            <li class="navli">
-              <a href="" class="nav">
-                <button class="navButton">3</button>
-                <div class="navp">
-                  <span>STEP 3</span>
-                  <span> ADD-ONS</span>
-                </div>
-              </a>
-            </li>
-            <li class="navli">
-              <a href="" class="nav">
-                <button class="navButton">4</button>
-                <div class="navp">
-                  <span>STEP 4</span>
-                  <span> SUMMARY </span>
-                </div>
-              </a>
-            </li>
-          </ul>
+          <div class="nav-carry">
+            <ul class="navlist">
+              <li class="navli">
+                <a href="" class="nav">
+                  <button class="navButton">1</button>
+                  <div class="navp">
+                    <span>STEP 1</span>
+                    <span> YOUR INFO</span>
+                  </div>
+                </a>
+              </li>
+              <li class="navli">
+                <a href="" class="nav">
+                  <button class="navButton">2</button>
+                  <div class="navp">
+                    <span>STEP 2</span>
+                    <span> SELECT PLAN</span>
+                  </div>
+                </a>
+              </li>
+              <li class="navli">
+                <a href="" class="nav">
+                  <button class="navButton">3</button>
+                  <div class="navp">
+                    <span>STEP 3</span>
+                    <span> ADD-ONS</span>
+                  </div>
+                </a>
+              </li>
+              <li class="navli">
+                <a href="" class="nav">
+                  <button class="navButton">4</button>
+                  <div class="navp">
+                    <span>STEP 4</span>
+                    <span> SUMMARY </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         <form action="">
           <div class="steps">
             <div class="step-1 step">
+              <h1>Personal info</h1>
+              <p>
+                please provide your name, email address, and phone number.
+              </p>
               <div>
-                <h1>Personal info</h1>
-                <p>
-                  please provide your name, email address, and phone number.
-                </p>
-                <div>
-                  <label for="name" class="block text-sm">Name</label>
-                  <input type="text" id="name" class="details-input" placeholder="e.g. Steven King">
-                </div>
-    
-                <div>
-                  <label for="email" class="block text-sm">Name</label>
-                  <input type="email" id="email" class="w-full border border-Pastel-blue py-2 px-3 rounded-md" placeholder="e.g. stevenking@lorem.com">
-                </div>
-    
-                <div>
-                  <label for="number" class="block text-sm">Name</label>
-                  <input type="tel" id="number" class="w-full border border-Pastel-blue py-2 px-3 rounded-md" placeholder="e.g. +1 234 567 890">
-                </div>
+                <label for="name" class="block text-sm">Name:</label>
+                <input type="text" id="name" class="details-input" placeholder="e.g. Steven King">
+              </div>
+  
+              <div>
+                <label for="email" class="block text-sm">Email Address:</label>
+                <input type="email" id="email" placeholder="e.g stephenking@lorem.com" class="details-input">
+              </div>
+  
+              <div>
+                <label for="number" class="block text-sm">Phone Number:</label>
+                <input type="tel" id="number"  placeholder="e.g. +1 234 567 890" class="details-input">
               </div>
             </div>
+            
+            <!-- <div class="step-2 step">
+              <h1>Slect your plan</h1>
+              <p>You have the option of monthly or yearly billing</p>
 
-            <div class="step-2 step"></div>
-            <div class="step-3 step"></div>
-            <div class="step-4 step"></div>
+              <div>
+                <span><img src="/src/images/icon-arcade.svg" alt="" sizes="" srcset=""></span>
+                <div>
+                  <h2>Arcade</h2>
+                  <span>$9/mo</span>
+                  <span class="yearly">$90/yr</span>
+                  <span class="yearly">2 months free</span>
+                </div>
+                <span><img src="/src/images/icon-advanced.svg" alt="" sizes="" srcset=""></span>
+                <div>
+                  <h2>Advanced</h2>
+                  <span>$12/mo</span>
+                  <span class="yearly">$120/yr</span>
+                  <span class="yearly">2 months free</span>
+                </div>
+                <span><img src="/src/images/icon-pro.svg" alt="" sizes="" srcset=""></span>
+                <div>
+                  <h2>Pro</h2>
+                  <span>$15/mo</span>
+                  <span class="yearly">$150/yr</span>
+                  <span class="yearly">2 months free</span>
+                </div>
+              </div>
+
+              <span>Monthly</span>
+              <div class="toggle">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <span>Yearly</span>
+
+            </div>
+
+            <div class="step-3 step">
+              <h1>Pick add-ons</h1>
+              <p>Add-ons help enhance your gaming experience</p>
+              <div>
+
+                <div>
+                  <div>
+                    <input type="checkbox" name="" id="online">
+                    <label for="online">
+                      <span>Online service</span>
+                      <span>Access to multiplayer games</span>
+                    </label>
+                  </div>
+                  <span>+$1/mo</span>
+                  <span class="yearly">+$10/yr</span>
+                </div>
+
+                <div>
+                  <div>
+                    <input type="checkbox" name="" id="larger">
+                    <label for="larger">
+                      <span>Larger storage</span>
+                      <span>Extra 1TB of cloud save</span>
+                    </label>
+                  </div>
+                  <span>+$2/mo</span>
+                  <span class="yearly">+$20/yr</span>
+                </div>
+
+                <div>
+                  <div>
+                    <input type="checkbox" name="" id="profile">
+                    <label for="profile">
+                      <span>Customizable profile</span>
+                      <span>Custom theme on your profile</span>
+                    </label>
+                  </div>
+                  <span>+$2/mo</span>
+                  <span class="yearly">+$20/yr</span>
+                </div>
+
+
+              </div>
+            </div> -->
+            
+            <!-- 
+            <div class="step-4 step"></div> -->
           </div>
 
           <footer>
             <div>
-              <button></button>
+              <button>Go Back</button>
               <button>Next Step</button>
             </div>
           </footer>
