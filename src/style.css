@@ -292,6 +292,44 @@ form {
   border-radius: 7px;
 }
 
+.step-4 .breakdown .break-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-4 .breakdown .break-top div {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-4 .breakdown .break-top div .p-name,
+.step-4 .breakdown .break-top .p-price, 
+.step-4 .breakdown .p-add-ons div .addPrices,
+.step-4 .total-div .total-cost {
+  font-weight: var(--thick);
+  color: var(--Marine-blue);
+}
+
+.step-4 .breakdown .p-add-ons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-4 .breakdown .p-add-ons div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step-4 .total-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
 /* footer/controls  */
 footer {
   position: relative;
