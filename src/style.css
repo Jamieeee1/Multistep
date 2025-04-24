@@ -176,21 +176,36 @@ form {
     font-weight: var(--thicker);
   }
 
+  h2 {
+    font-weight: var(--thick);
+    color: var(--Marine-blue);
+  }
+
   p {
     color: var(--Cool-gray);
+  }
+
+  span {
+    color: var(--Cool-gray);
+  }
+
+  span.free {
+    color: var(--Marine-blue);
+  }
+  span.yearly {
+    display: none;
   }
   
   border-radius: 10px;
 }
 
-/* step 1 specific */
-.step-1, .step-2 {
-  /* display: flex; */
+.step-1, .step-2,.step-3,.step-4 {
   flex-direction: column;
   gap: 1rem;
   padding-bottom: 1rem; 
 }
 
+/* step 1 specific */
 .step-1 div {
   display: flex;
   flex-direction: column;
@@ -210,13 +225,15 @@ form {
 }
 
 /* step2 */
-.step-2 .divPackage {
+.step-2 .divPackage,
+.step-3 .add-ons-div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.step-2 .divPackage .packages {
+.step-2 .divPackage label,
+.step-3 .add-ons-div .add-ons {
   border: 1px solid var(--Pastel-blue);
   padding: 1rem;
   border-radius: 10px;
@@ -225,22 +242,54 @@ form {
   gap: 1em;
 }
 
-.step-2 .divPackage .packages .packagePrice {
+.step-2 .divPackage input {
+  /* display: none; */
+  appearance: none;
+}
+
+.step-2 .divPackage input:checked + label{
+  border: 1px solid var(--Purplish-blue);
+}
+
+.step-2 .divPackage .packagePrice {
   display: flex;
   flex-direction: column;
 
-  h2 {
-    font-weight: 500;
-    color: var(--Marine-blue);
-  }
+}
 
-  span {
-    color: var(--Cool-gray);
-  }
+.step-3 .add-ons-div {
+  color: var(--Pastel-blue);
+}
 
-  span.free {
-    color: var(--Marine-blue);
-  }
+.step-3 .add-ons-div .add-ons {
+  justify-content: space-between;
+}
+
+.step-3 .add-ons-div .add-ons .add-on-check {
+  display: flex;
+  gap: 1.5em;
+}
+
+.step-3 .add-ons-div .add-ons .add-on-check label > span {
+  display: block;
+}
+
+.step-3 .add-ons-div .add-ons .add-on-check label :nth-child(1) {
+  color: var(--Marine-blue);
+  font-weight: var(--thicker);
+  font-size: 1.2rem;
+}
+
+.step-3 .yearly,
+.step-3 .monthly  {
+  color: var(--Purplish-blue);
+}
+
+
+.step-4 .breakdown {
+  background-color: var(--Light-gray);
+  padding: 1rem;
+  border-radius: 7px;
 }
 
 /* footer/controls  */

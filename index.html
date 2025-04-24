@@ -82,7 +82,8 @@
               <p>You have the option of monthly or yearly billing</p>
 
               <div class="divPackage">
-                <div class="packages">
+                <input type="radio" class="plans" name="plan" id="arcade" value="Arcade" />
+                <label for="arcade">
                   <span><img src="/src/images/icon-arcade.svg" alt="" sizes="" srcset=""></span>
                   <div class="packagePrice">
                     <h2>Arcade</h2>
@@ -90,9 +91,10 @@
                     <span class="yearly">$90/yr</span>
                     <span class="yearly free">2 months free</span>
                   </div>
-                </div>
+                </label>
 
-                <div class="packages">
+                <input type="radio" class="plans" name="plan" id="advanced" value="Advanced" />
+                <label for="advanced">
                   <span><img src="/src/images/icon-advanced.svg" alt="" sizes="" srcset=""></span>
                   <div class="packagePrice">
                     <h2>Advanced</h2>
@@ -100,9 +102,10 @@
                     <span class="yearly">$120/yr</span>
                     <span class="yearly free">2 months free</span>
                   </div>
-                </div>
+                </label>
 
-                <div class="packages">
+                <input type="radio" class="plans" name="plan" id="pro" value="Pro" />
+                <label for="pro">
                   <span><img src="/src/images/icon-pro.svg" alt="" sizes="" srcset=""></span>
                   <div class="packagePrice">
                     <h2>Pro</h2>
@@ -110,13 +113,14 @@
                     <span class="yearly">$150/yr</span>
                     <span class="yearly free">2 months free</span>
                   </div>
-                </div>
+                </label>
+                
               </div>
 
               <div class="toggle">
                 <span>Monthly</span>
                 <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" id="switchtoggle">
                   <span class="slider round"></span>
                 </label>
                 <span>Yearly</span>
@@ -127,50 +131,81 @@
             <div class="step-3 step">
               <h1>Pick add-ons</h1>
               <p>Add-ons help enhance your gaming experience</p>
-              <div>
+              <div class="add-ons-div">
 
-                <div>
-                  <div>
-                    <input type="checkbox" name="" id="online">
+                <div class="add-ons">
+                  <div class="add-on-check">
+                    <input type="checkbox" class ="Addons" name="service" id="online">
                     <label for="online">
                       <span>Online service</span>
                       <span>Access to multiplayer games</span>
                     </label>
                   </div>
-                  <span>+$1/mo</span>
-                  <span class="yearly">+$10/yr</span>
+                  <div>
+                    <span class="monthly">+$1/mo</span>
+                    <span class="yearly">+$10/yr</span>
+                  </div>
                 </div>
 
-                <div>
-                  <div>
-                    <input type="checkbox" name="" id="larger">
+                <div class="add-ons">
+                  <div class="add-on-check">
+                    <input type="checkbox" class ="Addons" name="service" id="larger">
                     <label for="larger">
                       <span>Larger storage</span>
                       <span>Extra 1TB of cloud save</span>
                     </label>
                   </div>
-                  <span>+$2/mo</span>
-                  <span class="yearly">+$20/yr</span>
+                  <div>
+                    <span class="monthly">+$2/mo</span>
+                    <span class="yearly">+$20/yr</span>
+                  </div>
                 </div>
 
-                <div>
-                  <div>
-                    <input type="checkbox" name="" id="profile">
+                <div class="add-ons">
+                  <div class="add-on-check">
+                    <input type="checkbox" class ="Addons" name="service" id="profile">
                     <label for="profile">
                       <span>Customizable profile</span>
                       <span>Custom theme on your profile</span>
                     </label>
                   </div>
-                  <span>+$2/mo</span>
-                  <span class="yearly">+$20/yr</span>
+                  <div>
+                    <span class="monthly">+$2/mo</span>
+                    <span class="yearly">+$20/yr</span>
+                  </div>
                 </div>
 
 
               </div>
             </div>
             
-            <!-- 
-            <div class="step-4 step"></div> -->
+             
+            <div class="step-4 step">
+              <h2>Finishing up</h2>
+              <p>Double-check everything looks OK before comfirming. </p>
+              <div class="breakdown">
+                <div class="break-top">
+                  <div>
+                    <span class="p-name"></span>
+                    <span>change</span>
+                  </div>
+                  <span class="p-price"></span>
+                </div>
+                <hr>
+                <div class="p-add-ons">
+
+                </div>
+
+              </div>
+
+              <div class="total-div">
+                <span class="total-label"></span>
+                <span class="total-cost"></span>
+              </div>
+
+            </div>
+
+
           </div>
 
           <footer>
