@@ -10,6 +10,7 @@ const checkboxes = document.querySelectorAll('.Addons');
 const detailsInput = document.querySelectorAll('.details-input');
 const yearLabel = document.querySelector('.yearlabel');
 const monthLabel = document.querySelector('.monthlabel');
+const addOnsDiv = document.querySelectorAll('.add-ons');
 
 //plan result
 const planName = document.querySelector('.p-name');
@@ -36,6 +37,12 @@ let addOnLabel;
 let currentPlan;
 let currentPlanPrice
 
+addOnsDiv.forEach((element,index)=> {
+    let child = document.querySelectorAll('.add-ons .add-on-check .Addons')[index];
+    element.addEventListener('click', () => {
+       child.click();
+    })
+} )
 
 const monthlyItems = {
     monthyPlans : {

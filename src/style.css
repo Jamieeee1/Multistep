@@ -624,7 +624,8 @@ input:checked + .slider:before {
   }
 
   .step-2 .divPackage label:hover {
-    border-color: var(--Marine-blue);
+    border-color: var(--Purplish-blue);
+    cursor: pointer;
   }
 
 
