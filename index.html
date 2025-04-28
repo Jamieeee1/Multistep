@@ -63,17 +63,17 @@
               </p>
               <div>
                 <label for="name" class="block text-sm">Name:</label>
-                <input type="text" id="name" class="details-input" placeholder="e.g. Steven King">
+                <input type="text" id="name" class="details-input" placeholder="e.g. Steven King" >
               </div>
   
               <div>
                 <label for="email" class="block text-sm">Email Address:</label>
-                <input type="email" id="email" placeholder="e.g stephenking@lorem.com" class="details-input">
+                <input type="email" id="email" class="details-input" placeholder="e.g stephenking@lorem.com" class="details-input" >
               </div>
   
               <div>
                 <label for="number" class="block text-sm">Phone Number:</label>
-                <input type="tel" id="number"  placeholder="e.g. +1 234 567 890" class="details-input">
+                <input type="tel" id="number" class="details-input" placeholder="e.g. +1 234 567 890" pattern="[1-9]{1}[0-9]{9}" class="details-input" >
               </div>
             </div>
             
@@ -118,12 +118,12 @@
               </div>
 
               <div class="toggle">
-                <span>Monthly</span>
+                <span class="monthlabel">Monthly</span>
                 <label class="switch">
                   <input type="checkbox" id="switchtoggle">
                   <span class="slider round"></span>
                 </label>
-                <span>Yearly</span>
+                <span class="yearlabel">Yearly</span>
               </div>
 
             </div>
@@ -187,7 +187,7 @@
                 <div class="break-top">
                   <div>
                     <span class="p-name"></span>
-                    <span>change</span>
+                    <span onclick="moveTo()">change</span>
                   </div>
                   <span class="p-price"></span>
                 </div>

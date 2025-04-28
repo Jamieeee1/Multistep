@@ -60,11 +60,11 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
+/* blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
-}
+} */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -82,6 +82,8 @@ body {
 .body {
   height: 100dvh;
   width: 100dvw;
+  display: grid;
+  place-items: center;
 }
 
 .container {
@@ -179,10 +181,12 @@ form {
   h2 {
     font-weight: var(--thick);
     color: var(--Marine-blue);
+    font-size: 1.4rem;
   }
 
   p {
     color: var(--Cool-gray);
+    font-size: 1.1rem;
   }
 
   span {
@@ -215,6 +219,10 @@ form {
 .step-1 div label {
   color: var(--Marine-blue);
   font-weight: var(--thick);
+}
+
+.step-1 div input:focus {
+  border-color: var(--Marine-blue);
 }
 
 .details-input {
@@ -255,6 +263,16 @@ form {
   display: flex;
   flex-direction: column;
 
+}
+
+.step-2 .toggle .monthlabel,
+.step-2 .toggle .yearlabel {
+  font-weight: var(--thicker);
+  font-size: 1.2rem;
+}
+
+.step-2 .toggle .monthlabel {
+  color: var(--Marine-blue);
 }
 
 .step-3 .add-ons-div {
@@ -301,6 +319,21 @@ form {
 .step-4 .breakdown .break-top div {
   display: flex;
   flex-direction: column;
+  gap: .4em;
+}
+
+.step-4 .breakdown .break-top div :last-child {
+  text-decoration: underline;
+  font-weight: var(--thick);
+  cursor: pointer;
+}
+
+.step-4 .breakdown .break-top div :last-child:hover {
+  color: var(--Purplish-blue);
+}
+
+.step-4 .breakdown .break-top div .p-name {
+  font-size: 1.3rem;
 }
 
 .step-4 .breakdown .break-top div .p-name,
@@ -309,6 +342,10 @@ form {
 .step-4 .total-div .total-cost {
   font-weight: var(--thick);
   color: var(--Marine-blue);
+}
+
+.step-4 .breakdown .break-top .p-price {
+  font-size: 1.4rem;
 }
 
 .step-4 .breakdown .p-add-ons {
@@ -328,6 +365,12 @@ form {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+}
+
+.step-4 .total-div .total-cost {
+  color: var(--Purplish-blue);
+  font-size: 1.5rem;
+  font-weight: var(--thicker);
 }
 
 /* footer/controls  */
@@ -350,11 +393,30 @@ footer div {
 footer div button {
   height: inherit;
   padding-inline: 1.3em ;
+  font-size: 1.15rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+} 
+
+footer div #prevBtn {
+  color: var(--Cool-gray);
+  visibility: hidden;
+}
+
+footer div #prevBtn:hover {
+  color: var(--Marine-blue);
+} 
+
+footer div #nextBtn {
   color: var(--Alabaster);
   background-color: var(--Marine-blue);
   border-radius: 7.5px;
-  font-size: 1rem;
-} 
+}
+
+footer div #nextBtn:hover {
+  filter: brightness(1.4);
+}
 
 /* toggle div  */
 
@@ -423,4 +485,170 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media screen and (min-width: 505px) {
+  .container {
+    max-height: 650px;
+    max-width: 900px;
+  }
+
+  .step {
+    margin: 10px auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    background-color: var(--White);
+  }
+  .step {
+    top:auto
+  }
+}
+
+@media screen and (min-width: 999px) {
+  .body {
+    display: grid;
+    place-items: center;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    height: 80%;
+    width: 70%;
+    padding: 1em;
+    border-radius: 1em;
+  }
+
+  nav {
+    height: 100%;
+    background-color: url('/src/images/bg-sidebar-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1em;
+  }
+
+  .nav-carry {
+    display: block;
+    height: max-content;
+  }
+
+  .navlist {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.3rem;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    gap: 1.2rem;
+  }
+
+  .navp {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--Cool-gray);
+  }
+
+  .navp :nth-child(2) {
+    color: var(--White);
+    font-size: 1.3rem;
+  }
+
+  form {
+    padding-inline: 4em;
+    height: 100%;
+    padding-block: 1em;
+    padding-inline: 2.5em;
+  }
+
+  .step {
+    padding-top: 0;
+    margin: 0;
+    width: 100%;
+    
+    h1 {
+      font-size: 1.7rem;
+      /* padding-block: 0.5em; */
+    }
+  
+    h2 {
+      font-weight: var(--thick);
+      color: var(--Marine-blue);
+    }
+  
+  };
+
+  .step-1 p {
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+
+  .step-1 div {
+    gap: 10px;
+    margin-block: .4em;
+  }
+  
+  .step-1 div label {
+    font-size: 1rem;
+  }
+
+  .step-1 div input {
+    font-size: 1.1rem;
+    padding: 1em;
+    color: var(--Light-gray);
+    border-radius: 10px;
+    border-color: var(--Cool-gray);
+  }
+
+  .step-2 .divPackage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .step-2 .divPackage input {
+    display: none;
+  }
+
+  .step-2 .divPackage label {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2em;
+  }
+
+  .step-2 .divPackage label:hover {
+    border-color: var(--Marine-blue);
+  }
+
+
+  .step-2 .divPackage .packagePrice {
+    gap: .4em;
+  }
+
+  .step-2 .toggle {
+    background-color: var(--Alabaster);
+  }
+
+  .step-3 .add-ons-div .add-ons .add-on-check label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    gap: .8em;
+  }
+
+  
+.step-3 .add-ons-div .add-ons div {
+  font-size: 1.2rem;
+}
+
+  footer {
+    background-color: transparent;
+  }
 }

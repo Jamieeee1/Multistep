@@ -7,6 +7,9 @@ const monthly = document.querySelectorAll('.monthly');
 const yearly = document.querySelectorAll('.yearly');
 const plans = document.querySelectorAll('.plans');
 const checkboxes = document.querySelectorAll('.Addons');
+const detailsInput = document.querySelectorAll('.details-input');
+const yearLabel = document.querySelector('.yearlabel');
+const monthLabel = document.querySelector('.monthlabel');
 
 //plan result
 const planName = document.querySelector('.p-name');
@@ -22,6 +25,7 @@ const totalDiv = document.querySelector('.total-div');
 
 let phase = 'bymonth';
 let currentPage = 0;
+let checkValArray = [];
 
 let sum1;
 let sum2;
@@ -121,7 +125,6 @@ const asignPlan = () => {
             };
         };
     });
-    console.log(`sum of plan = ${sum1}`)
 };
 
 const asignAddOns = () => {
@@ -138,7 +141,6 @@ const asignAddOns = () => {
             sum2 += getAddon(addOnLabel);
         };
     };
-    console.log(`sum of addons = ${sum2}`)
 };
 
 const totalSum = (sum3) => {
@@ -147,12 +149,41 @@ const totalSum = (sum3) => {
     totalDiv.innerHTML = `
         <span class="total-label">Total (per ${planLabel(phase)})</span> <span class="total-cost">$${sum3}/${priceLabel(phase)}</span>
     `
+};
+
+const toggleVisibility = (currentPage) => {
+    if(currentPage >= 1) {
+        prevBtn.style.visibility = "visible";
+    } else {
+        prevBtn.style.visibility = "hidden";
+    }
+}
+
+const checkInputValidity = (pass) => {
+    checkValArray = [];
+    pass.forEach((input) => {
+        let checkVal = input.checkValidity();
+        console.log(checkVal)
+        checkValArray.push(checkVal)
+        if (input.value === "") {
+            window.alert(`${input.id} field cannot be left empty`);
+        }
+        if(checkVal === true) {
+            input.style.borderColor = "#ed3548";
+        }
+    })
+}
+
+const moveTo = () => {
+    currentPage = 1;
+    movefocus();
 }
 
 
 // next and back bottons
 nextBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    
     if(currentPage == 1) {
         asignPlan()
     }
@@ -166,9 +197,31 @@ nextBtn.addEventListener('click', (e) => {
     } else{
         currentPage += 1;
         movefocus();
+        toggleVisibility(currentPage)
+        if(currentPage === 3) {
+            nextBtn.innerHTML = "Confirm";
+        };
+        // if(currentPage === 0) {
+        //     // checkInputValidity(detailsInput)
+        //     // console.log(checkValArray)
+        //     if(checkValArray.includes(true)) {
+        //         return
+        //     } else {
+        //         currentPage += 1;
+        //         movefocus();
+        //         toggleVisibility(currentPage)
+        //     }
+        // } else {
+            // if(currentPage === 3) {
+            //     nextBtn.innerHTML = "Confirm";
+            // };
+        //     currentPage += 1;
+        //     movefocus();
+        // }
     }
     
 })
+
 prevBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if(currentPage<=0){
@@ -176,6 +229,8 @@ prevBtn.addEventListener('click', (e) => {
     } else{
         currentPage -= 1;
         movefocus();
+        nextBtn.innerHTML = "Next Step";
+        toggleVisibility(currentPage)
     }
 })
 
@@ -183,6 +238,8 @@ prevBtn.addEventListener('click', (e) => {
 toggle.addEventListener('change', () => {
     if(toggle.checked) {
         phase = 'byyear';
+        yearLabel.style.color = "hsl(213, 96%, 18%)";
+        monthLabel.style.color = "hsl(231, 11%, 63%)";
         yearly.forEach((e)=> {
             e.style.display = "block";
         })
@@ -192,6 +249,8 @@ toggle.addEventListener('change', () => {
     }
     else {
         phase = 'bymonth';
+        monthLabel.style.color = "hsl(213, 96%, 18%)";
+        yearLabel.style.color = "hsl(231, 11%, 63%)";
         yearly.forEach((e)=> {
             e.style.display = "none";
         })
