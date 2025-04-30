@@ -245,6 +245,10 @@ form {
   gap: 1rem;
 }
 
+.step-2 .divPackage {
+  gap: .3rem
+}
+
 .step-2 .divPackage label,
 .step-3 .add-ons-div .add-ons {
   border: 1px solid var(--Pastel-blue);
@@ -253,6 +257,10 @@ form {
   display: flex;
   align-items: center;
   gap: 1em;
+}
+
+.step-2 .divPackage label {
+  padding: .5rem;
 }
 
 .step-2 .divPackage input {
@@ -537,6 +545,14 @@ input:checked + .slider:before {
   .step {
     top:auto
   }
+
+  .step-2 .divPackage label {
+    padding: 1rem;
+  }
+  .step-2 .divPackage {
+    gap: 1rem
+  }
+  
 }
 
 @media screen and (min-width: 999px) {
