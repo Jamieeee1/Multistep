@@ -11,6 +11,7 @@ const detailsInput = document.querySelectorAll('.details-input');
 const yearLabel = document.querySelector('.yearlabel');
 const monthLabel = document.querySelector('.monthlabel');
 const addOnsDiv = document.querySelectorAll('.add-ons');
+const footerDiv =  document.querySelector('footer div')
 
 //plan result
 const planName = document.querySelector('.p-name');
@@ -27,6 +28,9 @@ const totalDiv = document.querySelector('.total-div');
 let phase = 'bymonth';
 let currentPage = 0;
 let checkValArray = [];
+let isAllvaild;
+let correct;
+let checkPlanValidityArray;
 
 let sum1;
 let sum2;
@@ -39,10 +43,25 @@ let currentPlanPrice
 
 addOnsDiv.forEach((element,index)=> {
     let child = document.querySelectorAll('.add-ons .add-on-check .Addons')[index];
+    let label = document.querySelectorAll('.add-ons .add-on-check label')[index];
     element.addEventListener('click', () => {
        child.click();
-    })
-} )
+       addOnsCheck(child,element);
+    });
+    label.addEventListener('click', () => {
+        child.click();
+        addOnsCheck(child,element);
+    });
+    child.addEventListener('click', () => {
+        child.click();
+        addOnsCheck(child,element);
+    });
+
+})
+
+const addOnsCheck = (child,element) => {
+    child.checked ? element.style.borderColor = "hsl(243, 100%, 62%)" : element.style.borderColor = "hsl(228, 100%, 84%)";
+}
 
 const monthlyItems = {
     monthyPlans : {
@@ -75,14 +94,16 @@ const yearlyItems = {
 
 // functions
 const movefocus = () => {
-    navNums.forEach((e)=> {
-        e.classList.remove("active");
-    })
+    if(currentPage<4) {
+        navNums.forEach((e)=> {
+            e.classList.remove("active");
+        });
+        navNums[currentPage].classList.add("active");
+    }
     steps.forEach((e)=> {
         e.classList.remove("active");
     })
     
-    navNums[currentPage].classList.add("active");
     steps[currentPage].classList.add("active");
 }
 
@@ -95,27 +116,15 @@ const priceLabel = (phase) => {
 };
 
 const planLabel = (phase) => {
-    if(phase === 'bymonth') {
-        return 'month'
-    } else {
-        return 'year'
-    };
+    return phase === 'bymonth' ? 'month' : 'year';
 }
 
 const getPlan = (planPriceLabel) => {
-    if(phase==='bymonth') {
-        return monthlyItems.monthyPlans[planPriceLabel]
-    } else {
-        return yearlyItems.yearlyPlans[planPriceLabel]
-    };
+    return phase==='bymonth' ?  monthlyItems.monthyPlans[planPriceLabel] : yearlyItems.yearlyPlans[planPriceLabel];
 };
 
 const getAddon = (addOnLabel) => {
-    if (phase === 'bymonth') {
-        return monthlyItems.monthlyAddons[addOnLabel]
-    } else {
-        return yearlyItems.yearlyAddons[addOnLabel]
-    };
+    return phase === 'bymonth' ? monthlyItems.monthlyAddons[addOnLabel] : yearlyItems.yearlyAddons[addOnLabel];
 };
 
 const asignPlan = () => {
@@ -159,26 +168,61 @@ const totalSum = (sum3) => {
 };
 
 const toggleVisibility = (currentPage) => {
-    if(currentPage >= 1) {
-        prevBtn.style.visibility = "visible";
-    } else {
-        prevBtn.style.visibility = "hidden";
+    currentPage >= 1 ? prevBtn.style.visibility = "visible" : prevBtn.style.visibility = "hidden";
+};
+
+function validateAll(value, type) {
+    let isValid = true
+    if (type === "text") {
+        if(value === '') {
+            isValid = false;
+            alert("Name space must be filled out");
+        } else {
+            const alphaRegex = /[a-zA-Z]$/;
+            let newValue = value.trim();
+            if(!alphaRegex.test(newValue)){
+                alert('Input valid name');
+                isValid = false;
+            }
+        }
+        
+    } else if (type === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (value === "") {
+            alert("Email must be filled out");
+            isValid = false;
+        } else if (!emailRegex.test(value)) {
+            alert("Invalid email format");
+            isValid = false;
+        }
+
+    } else if (type === "tel") {
+        const numericRegex = /^[0-9]*$/;
+        if(value === "") {
+            alert('Input the telephone number');
+            isValid = false;
+        } else if (!numericRegex.test(value)){
+            alert('Enter a valid phone number');
+            isValid = false;
+        }
     }
+    return isValid
 }
 
 const checkInputValidity = (pass) => {
-    checkValArray = [];
-    pass.forEach((input) => {
-        let checkVal = input.checkValidity();
-        console.log(checkVal)
-        checkValArray.push(checkVal)
-        if (input.value === "") {
-            window.alert(`${input.id} field cannot be left empty`);
-        }
-        if(checkVal === true) {
-            input.style.borderColor = "#ed3548";
-        }
-    })
+    isAllvaild = [];
+    pass.forEach((element) => {
+        let response = validateAll(element.value, element.type);
+        isAllvaild.push(response);
+    });
+    return isAllvaild
+};
+
+
+const checkPlanSelector = () => {
+    const subscriptionSelected = document.querySelector('input[name="plan"]:checked');
+    return !subscriptionSelected ? false : true;
+    
 }
 
 const moveTo = () => {
@@ -196,36 +240,45 @@ nextBtn.addEventListener('click', (e) => {
     }
     if(currentPage ==2) {
         asignAddOns()
-        totalSum()
+        totalSum();
+        nextBtn.innerHTML = "Confirm";
     }
 
-    if(currentPage>=3){
+    if(currentPage>= 4){
         return
     } else{
-        currentPage += 1;
-        movefocus();
-        toggleVisibility(currentPage)
-        if(currentPage === 3) {
-            nextBtn.innerHTML = "Confirm";
-        };
-        // if(currentPage === 0) {
-        //     // checkInputValidity(detailsInput)
-        //     // console.log(checkValArray)
-        //     if(checkValArray.includes(true)) {
-        //         return
-        //     } else {
-        //         currentPage += 1;
-        //         movefocus();
-        //         toggleVisibility(currentPage)
-        //     }
-        // } else {
-            // if(currentPage === 3) {
-            //     nextBtn.innerHTML = "Confirm";
-            // };
-        //     currentPage += 1;
-        //     movefocus();
-        // }
+        if(currentPage === 0) {
+            checkInputValidity(detailsInput)
+            if(isAllvaild.includes(false)) {
+                return
+            } else {
+                currentPage += 1;
+                movefocus();
+                toggleVisibility(currentPage)
+            }
+        }else if (currentPage ===1 ) {
+           if (checkPlanSelector()===false) {
+            alert('please select a plan')
+            return;
+            } else {
+            currentPage += 1;
+            movefocus();
+           };
+        }else if (currentPage === 3) {
+            footerDiv.style.display = "none";
+            currentPage += 1;
+            movefocus();
+        }
+         else {
+            if(currentPage === 3) {
+                nextBtn.innerHTML = "Confirm";
+            };
+            currentPage += 1;
+            movefocus();
+        }
     }
+
+
     
 })
 
@@ -266,3 +319,6 @@ toggle.addEventListener('change', () => {
         })
     }
 })
+
+
+
