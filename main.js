@@ -89,8 +89,6 @@ const yearlyItems = {
     }
 };
 
-// console.log(yearlyItems.monthlyAddons["Customizable profile"])
-
 
 // functions
 const movefocus = () => {
@@ -197,7 +195,7 @@ function validateAll(value, type) {
         }
 
     } else if (type === "tel") {
-        const numericRegex = /^[0-9]*$/;
+        const numericRegex = /[0-9]$/;
         if(value === "") {
             alert('Input the telephone number');
             isValid = false;
