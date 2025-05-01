@@ -11,7 +11,8 @@ const detailsInput = document.querySelectorAll('.details-input');
 const yearLabel = document.querySelector('.yearlabel');
 const monthLabel = document.querySelector('.monthlabel');
 const addOnsDiv = document.querySelectorAll('.add-ons');
-const footerDiv =  document.querySelector('footer div')
+const footerDiv =  document.querySelector('footer div');
+const changeBtn = document.querySelector('.moveTo');
 
 //plan result
 const planName = document.querySelector('.p-name');
@@ -209,7 +210,13 @@ const checkInputValidity = (pass) => {
     isAllvaild = [];
     pass.forEach((element) => {
         let response = validateAll(element.value, element.type);
+        if (response === false) {
+            element.style.borderColor = 'hsl(354, 84%, 57%)';
+        } else {
+            element.style.borderColor = 'hsl(213, 96%, 18%)';
+        }
         isAllvaild.push(response);
+        
     });
     return isAllvaild
 };
@@ -221,11 +228,10 @@ const checkPlanSelector = () => {
     
 }
 
-const moveTo = () => {
+changeBtn.addEventListener('click', () => {
     currentPage = 1;
     movefocus();
-}
-
+})
 
 // next and back bottons
 nextBtn.addEventListener('click', (e) => {

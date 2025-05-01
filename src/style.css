@@ -230,14 +230,14 @@ form {
   padding-block: 7px;
   padding-inline: 10px;
   border-radius: 5px;
+  color: var(--Marine-blue);
+}
+
+.details-input:focus {
+  color: var(--Marine-blue);
 }
 
 /* step2 */
-
-.step-2 {
-  overflow-y: scroll;
-}
-
 .step-2 .divPackage,
 .step-3 .add-ons-div {
   display: flex;
