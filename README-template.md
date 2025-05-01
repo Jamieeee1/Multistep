@@ -95,8 +95,8 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 ### Useful resources
 
-- [Example resource 1](https://www.youtube.com/watch?v=CYlNJpltjMM&list=PPSV) - This should help with inout validation but I didnt use this video.
-- [Example resource 2](https://www.w3schools.com/howto/howto_css_switch.asp ) - the source I go the toggle design from.
+- [Youtube on validation](https://www.youtube.com/watch?v=CYlNJpltjMM&list=PPSV) - This should help with inout validation but I didnt use this video.
+- [toogle code from w3school](https://www.w3schools.com/howto/howto_css_switch.asp ) - the source I go the toggle design from.
 
 ## Author
 
@@ -107,6 +107,4 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Thanks to chlaude AI, google search, starkoverflow and others. thanks to God. Lastly I want to thank Me.
