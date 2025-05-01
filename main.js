@@ -12,6 +12,7 @@ const yearLabel = document.querySelector('.yearlabel');
 const monthLabel = document.querySelector('.monthlabel');
 const addOnsDiv = document.querySelectorAll('.add-ons');
 const footerDiv =  document.querySelector('footer div');
+const attribute = document.querySelector('.attribution');
 const changeBtn = document.querySelector('.moveTo');
 
 //plan result
@@ -268,6 +269,7 @@ nextBtn.addEventListener('click', (e) => {
            };
         }else if (currentPage === 3) {
             footerDiv.style.display = "none";
+            attribute.style.display = "block"
             currentPage += 1;
             movefocus();
         }
