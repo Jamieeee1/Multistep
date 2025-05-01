@@ -24,10 +24,8 @@ const addOnsResult = document.querySelector('.p-add-ons');
 const totalDiv = document.querySelector('.total-div');
 
 
-
 let phase = 'bymonth';
 let currentPage = 0;
-let checkValArray = [];
 let isAllvaild;
 let correct;
 let checkPlanValidityArray;
@@ -40,28 +38,6 @@ let addOnLabel;
 
 let currentPlan;
 let currentPlanPrice
-
-addOnsDiv.forEach((element,index)=> {
-    let child = document.querySelectorAll('.add-ons .add-on-check .Addons')[index];
-    let label = document.querySelectorAll('.add-ons .add-on-check label')[index];
-    element.addEventListener('click', () => {
-       child.click();
-       addOnsCheck(child,element);
-    });
-    label.addEventListener('click', () => {
-        child.click();
-        addOnsCheck(child,element);
-    });
-    child.addEventListener('click', () => {
-        child.click();
-        addOnsCheck(child,element);
-    });
-
-})
-
-const addOnsCheck = (child,element) => {
-    child.checked ? element.style.borderColor = "hsl(243, 100%, 62%)" : element.style.borderColor = "hsl(228, 100%, 84%)";
-}
 
 const monthlyItems = {
     monthyPlans : {
@@ -89,8 +65,30 @@ const yearlyItems = {
     }
 };
 
-
 // functions
+addOnsDiv.forEach((element,index)=> {
+    let child = document.querySelectorAll('.add-ons .add-on-check .Addons')[index];
+    let label = document.querySelectorAll('.add-ons .add-on-check label')[index];
+    element.addEventListener('click', () => {
+       child.click();
+       addOnsCheck(child,element);
+    });
+    label.addEventListener('click', () => {
+        child.click();
+        addOnsCheck(child,element);
+    });
+    child.addEventListener('click', () => {
+        child.click();
+        addOnsCheck(child,element);
+    });
+
+})
+
+const addOnsCheck = (child,element) => {
+    child.checked ? element.style.borderColor = "hsl(243, 100%, 62%)" : element.style.borderColor = "hsl(228, 100%, 84%)";
+}
+
+
 const movefocus = () => {
     if(currentPage<4) {
         navNums.forEach((e)=> {
