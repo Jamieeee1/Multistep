@@ -155,15 +155,11 @@ a {
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: var(--Magnolia);
-  overflow: auto;
 }
 
 .body {
-  min-height: 100dvh;
-  min-width: 100dvw;
-  height: auto;
-  width: 100%;
-  overflow: auto;
+  height: 100dvh;
+  width: 100dvw;
   display: grid;
   place-items: center;
 }
@@ -171,12 +167,6 @@ body {
 .container {
   height: inherit;
   width: inherit;
-  max-height: 100%;
-  max-width: 900px;
-  min-width: 320px;
-  height: auto;
-  box-sizing: border-box;
-  overflow: auto;
 }
 
 nav {
@@ -279,6 +269,14 @@ form {
 
   span {
     color: var(--Cool-gray);
+  }
+
+  span.error-message {
+    color: hsl(354, 84%, 57%);
+    font-size: 0.95em;
+    margin-top: 2px;
+    min-height: 1em;
+    display: block;
   }
 
   span.free {
@@ -653,16 +651,35 @@ input:checked + .slider:before {
 
 @media screen and (min-width: 999px) {
   .body {
+    min-height: 100dvh;
+    min-width: 100dvw;
+    width: 100%;
+    height: auto;
     display: grid;
     place-items: center;
+    overflow: auto;
   }
+
+  /* .container {
+  width: 100%;
+  max-width: 900px;
+  min-width: 320px;
+  height: auto;
+  max-height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+} */
 
   .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
-    height: 80%;
-    width: 70%;
+    height: auto;
+    max-width: 900px;
+    max-height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    width: 100%;
     padding: 1em;
     border-radius: 1em;
   }
@@ -794,3 +811,5 @@ input:checked + .slider:before {
     background-color: transparent;
   }
 }
+
+/* error-message */
