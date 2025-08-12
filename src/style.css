@@ -660,16 +660,6 @@ input:checked + .slider:before {
     overflow: auto;
   }
 
-  /* .container {
-  width: 100%;
-  max-width: 900px;
-  min-width: 320px;
-  height: auto;
-  max-height: 100%;
-  box-sizing: border-box;
-  overflow: auto;
-} */
-
   .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -811,5 +801,3 @@ input:checked + .slider:before {
     background-color: transparent;
   }
 }
-
-/* error-message */
